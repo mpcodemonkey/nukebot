@@ -1,0 +1,22 @@
+{
+  "name": "nukebot",
+  "version": "1.0.0",
+  "description": "A bot for managing fallout pnp 2.0 games",
+  "main": "run.js",
+  "dependencies": {
+    "discord.js": "^9.3.0",
+    "sprintf-js": "^1.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Catherine Kramer/Jonathan Tinney",
+  "license": "ISC",
+  "contributors": [
+    {
+      "name": "Xavier Lamphere",
+      "email": "none@provided.com"
+    }
+  ]
+}
