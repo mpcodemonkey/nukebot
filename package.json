@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A bot for managing fallout pnp 2.0 games",
   "main": "run.js",
+  "scripts": {
+    "main": "node $NODE_DEBUG_OPTION ./run.js"
+  },
   "dependencies": {
     "discord.js": "^9.3.0",
     "sprintf-js": "^1.0.3"

@@ -154,5 +154,36 @@
 			"CP":"46",
 			"Perk Rate":"4"
 		}
-	]
+	],
+	
+	"Critical": [
+    {
+      "Failures":
+	  {
+		"1": "Ammo Problems - The magazine was\ndamaged or the ammo was bad. The\ngun does not fire, and the rest of\nthe magazine must be discarded.",
+		"2": "Weapon jammed - Should have\ncleaned your gun out! The weapon\nwill take 1 turn to unjam, and the\nammo inside must be discarded.",
+		"3":"Loss of AP - D'oh! The attacker\nloses all remaining AP for that\nround.",
+		"4":"Dropped weapon - something\nslipped, and the weapon flew out\nof your hands and hit the ground.",
+		"5":"Weapon Explodes - Something nasty\nthat happens only with explosive\nor energy weapons. Deals 3d10+7\nDamage\nto anyone within 2 hexes of\nthe weapon. OUCH!",
+		"6":"Hit Something Else - You didn't\nhit what you were aiming for, but\nyou nailed the next closest\ntarget. Hope it wasn't your\nbuddy..",
+		"7":"Damage Self - You cut yourself on\nyour knife, or shot yourself in\nthe foot. Half the weapon's\nnormal damage is dealt to YOU\ninstead.",
+		"8":"You slip and fall. All remaining\nAP are gone, and next round, you\nmust get up. While down, \nyou lose all Armor Class \nfrom Agility.",
+		"9":"Weapon breaks - the weapon breaks\nbeyond repair. Time for a new\none. Oops.",
+		"10":"Anvil - A miniature anvil falls\nout of the sky and strikes you on\nthe head for 1d10 points of\ndamage. No\nchance to dodge, and\nDT and DR are disregarded for this\nstrange, magical attack."
+	  },
+	  "Successes":
+	  {
+		"1":"Ammo Depot - You find some Extra Ammo on\nThe ground. Lucky you! You gain 1d6 rounds for your\ncurrently equipped weapon.",
+		"2":"Jack the Crippler - At least they\ncan beg for money now.",
+		"3":"Tactical Genius - Have you been\n reading up on post-fallout\ntactics? You gain 1d3 AP.",
+		"4":"Disarmer - The force of\nyour hit caused your target\nto drop their weapon.\nBad luck huh?",
+		"5":"Shatter Shot - You blew apart their weapon!\nOnly happens only with explosive\nor energy weapons. Deals 3d10+7 Damage\nto anyone within 2 hexes of the weapon.\nOUCH!",
+		"6":"Two Birds - You hit what you were aiming for,\nand that's everything! Roll to hit against\nthe next closest target.",
+		"7":"Knockdown - Open the door, get\non the floor. Your target is prone and\nwanting more!",
+		"8":"Decapitation - well, they weren't gonna\nneed that anyway.",
+		"9":"Limb Removal - Ouch, you know\nthey'll probably die\nfrom blood loss now.",
+		"10":"Explosion - Wow, you blew them up!\nBodily fluids and organs spray into the air, and\nyour target is no more."
+	  }
+    }
+  ]
 }

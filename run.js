@@ -2,11 +2,7 @@ var Discord = require("discord.js");
 var bot = new Discord.Client();
 var fs = require('fs');
 var sprintf = require("sprintf-js").sprintf;
-var WSG = JSON.parse(fs.readFileSync('./data/survival_guide.json', 'utf8'));
-
-
-//load excel sheet on startup
-//var workbook = XLSX.readFile('./data/pdf_simplified.xlsx');
+var WSG = require('./data/survival_guide.json');
 
 bot.on("message", msg => {
 	
@@ -45,7 +41,19 @@ bot.on("message", msg => {
     					msg.channel.sendMessage("usage: query [topic]");
     				break;
     			case "roll":
+					let rollType = content[1];
+					if(rollType){
+						result = readGuide(content);
+						msg.channel.sendMessage(result);
+					}
+					else
+						msg.channel.sendMessage("usage: roll [hit/ability/random]");
     				break;
+				case "failure":
+				case "success":
+					result = readGuide(content);
+					msg.channel.sendMessage(result);
+					break;
     			case "commands":
     				msg.channel.sendMessage("Command list: \ncommands: returns a list of all commands\nquery: queries the survival guide for general information");
     				break;
@@ -64,16 +72,17 @@ bot.on('ready', () => {
   console.log('I am ready!');
 });
 
-bot.login("MjMzODAyOTI2NDcwOTg3Nzc3.Ctixow.wyx3iAXRTPpj326ITJNOvqwz2O0");
+bot.login("YOUR SECRET TOKEN HERE");
 
 readGuide = function(topic) {
 
 	var term = topic[0];
-	var needle = topic.slice(1).join(" ");
+
 	var result = "";
 
 	switch(term){
-		case "races":	
+		case "races":
+			var needle = topic.slice(1).join(" ");
 			var races = WSG["Races"];
 			for(var race in races){
 				if(races.hasOwnProperty(race)){
@@ -97,6 +106,28 @@ readGuide = function(topic) {
 					}
 				}
 			}
+			break;
+		case "roll":
+			switch(topic[1]){
+				case "hit":
+					var base = topic[2], range = topic[3], light = topic[4], armor = topic[5], cover = topic[6], bp = topic[7], ts = topic[8];
+					if(!base || ! range || !light || !armor || !cover || !bp || !ts){
+						result = "usage: combat [base] [range] [light] [armor] [cover] [bonus/penalty] [targeted shot]";
+					}
+					else{
+						var toHit = parseInt(base) - parseInt(range) - parseInt(light) - parseInt(armor) - parseInt(cover) + parseInt(bp) - parseInt(ts);
+						result = "player has a " + toHit + "% chance to hit.";
+					}
+			}
+			break;
+		case "failure":
+		case "success":
+			var crit = WSG["Critical"];
+			crit = crit["0"];
+			var criticals = term === "failure"? crit["Failures"] : crit["Successes"];
+			var howGoodBad = (Math.floor(Math.random() * 10) + 1).toString();
+
+			result = criticals[howGoodBad];
 			break;
 		case "resistances":
 			break;
